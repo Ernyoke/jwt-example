@@ -1,0 +1,21 @@
+<div>
+  <nav>
+    <ul>
+      <li routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['home']">Home</a>
+      </li>
+      <li>
+        <a class="nav-link" [routerLink]="['admin']">Admin</a>
+      </li>
+      <li>
+        <a class="nav-link" [routerLink]="['user']">User</a>
+      </li>
+      <li *ngIf="!(authService.isAuthenticated() | async)">
+        <a class="nav-link" [routerLink]="['login']">Login</a>
+      </li>
+      <li *ngIf="authService.isAuthenticated() | async">
+        <a class="nav-link" [routerLink]="['logout']">Logout</a>
+      </li>
+    </ul>
+  </nav>
+</div>
